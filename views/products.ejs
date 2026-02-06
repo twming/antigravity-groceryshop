@@ -1,0 +1,18 @@
+<h1 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Our Products</h1>
+
+<div class="product-grid">
+    <% if (products.length===0) { %>
+        <p style="text-align: center; grid-column: 1 / -1;">No products found in the gallery.</p>
+        <% } %>
+            <% products.forEach(product=> { %>
+                <div class="product-card">
+                    <img class="product-image" src="/images/<%= product %>" alt="<%= product %>"
+                        onerror="this.src='https://via.placeholder.com/300x200?text=<%= product %>'; this.onerror=null;">
+                    <div class="product-info">
+                        <div class="product-name">
+                            <%= product.split('.')[0] %>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+</div>
